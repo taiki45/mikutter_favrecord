@@ -30,7 +30,7 @@ ruby mikutter.rb
 ```
 
 You can use any other database like MySQL.
-Edit database.yml.
+Edit `database.yml`.
 For more detal, see `ActiveRecord::Base.establish_connection` document.
 
 ## License
