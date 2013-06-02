@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require File.expand_path('../connection', __FILE__)
-require 'pry'
 
 module FavRecord
 
