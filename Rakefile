@@ -2,7 +2,7 @@ require File.expand_path('../connection', __FILE__)
 
 namespace :db do
   desc "create database"
-  task :create_databese do
+  task :create_database do
     class CreateDatabase < ActiveRecord::Migration
       def up
         create_table :users do |t|

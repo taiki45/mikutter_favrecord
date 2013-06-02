@@ -6,8 +6,8 @@ module FavRecord
 
   Plugin.create :mikutter_favrecord do
     on_favorite do |service, fav_user, message|
-      unless user.is_me?
-        user = User.find_by_twitter_id(fav_user.id).first
+      unless fav_user.is_me?
+        user = User.find_by_twitter_id(fav_user.id)
         unless user
           user = User.create(
             twitter_id: fav_user.id,
@@ -16,9 +16,11 @@ module FavRecord
           )
         end
 
-        fav = Fav.find_by_tweet_id(message.id).first
-        unless fav
-          Fav.create(tweet_id: message.id, user: user)
+        fav = Fav.find_by_tweet_id(message.id)
+        if !fav || fav.user != user
+          fav = Fav.new(tweet_id: message.id)
+          fav.user = user
+          fav.save
         end
       end
     end
