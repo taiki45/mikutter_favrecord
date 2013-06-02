@@ -6,6 +6,7 @@ namespace :db do
     class CreateDatabase < ActiveRecord::Migration
       def up
         create_table :users do |t|
+          p t.methods.include? :index
           t.string :twitter_id
           t.string :screen_name
           t.string :name
@@ -16,6 +17,11 @@ namespace :db do
           t.string :tweet_id
           t.belongs_to :user
         end
+
+        add_index :users, :twitter_id, unique: true
+        add_index :users, :screen_name, unique: true
+        add_index :users, :favs_count
+        add_index :favs, [:tweet_id, :user_id]
       end
     end
 
