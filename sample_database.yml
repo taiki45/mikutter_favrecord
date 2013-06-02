@@ -1,0 +1,4 @@
+db:
+  development:
+    adapter: sqlite3
+    database: favrecord.db
