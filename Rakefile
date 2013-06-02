@@ -28,3 +28,10 @@ namespace :db do
     CreateDatabase.new.up
   end
 end
+
+desc "show all faved user order by faved count"
+task :show do
+  FavRecord::User.order(:favs_count).reverse_order.all.each do |user|
+    puts "#{user.screen_name},#{user.favs.count}"
+  end
+end
