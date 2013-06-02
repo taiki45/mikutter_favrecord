@@ -16,8 +16,8 @@ module FavRecord
           )
         end
 
-        fav = Fav.find_by_tweet_id(message.id)
-        if !fav || fav.user != user
+        fav = Fav.find_by_tweet_id_and_user_id(message.id, user.id)
+        unless fav
           fav = Fav.new(tweet_id: message.id)
           fav.user = user
           fav.save

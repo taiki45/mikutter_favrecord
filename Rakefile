@@ -9,6 +9,7 @@ namespace :db do
           t.string :twitter_id
           t.string :screen_name
           t.string :name
+          t.integer :favs_count, defaul: 0
         end
 
         create_table :favs do |t|
