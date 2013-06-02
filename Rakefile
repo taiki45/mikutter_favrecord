@@ -1,4 +1,5 @@
 require File.expand_path('../connection', __FILE__)
+require 'json'
 
 namespace :db do
   desc "create database"
@@ -29,9 +30,20 @@ namespace :db do
   end
 end
 
-desc "show all faved user order by faved count"
+desc "show all faved users order by faved count"
 task :show do
   FavRecord::User.order(:favs_count).reverse_order.all.each do |user|
     puts "#{user.screen_name},#{user.favs.count}"
   end
 end
+
+namespace :json do
+  desc "show all faved users order by faved count"
+  task :show do
+    FavRecord::User.order(:favs_count).reverse_order.all.each do |user|
+      puts({screen_name: user.screen_name, count: user.favs.count}.to_json)
+    end
+  end
+end
+
+task :default => :show
