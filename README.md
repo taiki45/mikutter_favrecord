@@ -8,12 +8,6 @@ Let's record faved user!
 bundle exec rake show
 ```
 
-* show faved users and counts via web app
-
-```sh
-bundle exec ruby app.rb
-```
-
 ## Install
 
 ```sh
