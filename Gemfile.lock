@@ -24,6 +24,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
+  activerecord (~> 3.2)
   rake
-  sqlite3
+  sqlite3 (~> 1.3)
