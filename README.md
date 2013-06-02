@@ -20,6 +20,7 @@ bundle exec ruby app.rb
 mkdir -p ~/.mikutter/plugin
 git clone git://github.com/taiki45/mikutter_favrecord.git ~/.mikutter/plugin/mikutter_favrecord
 cd ~/.mikutter/plugin/mikutter_favrecord
+cp -v sample_database.yml database.yml
 bundle isntall
 bundle exec rake db:create_database
 
@@ -27,6 +28,10 @@ cd /your/mikutter/dir
 bundle install
 ruby mikutter.rb
 ```
+
+You can use any other database like MySQL.
+Edit database.yml.
+For more detal, see `ActiveRecord::Base.establish_connection` document.
 
 ## License
 Copyright (c) 2013 Taiki ONO (@taiki45)
