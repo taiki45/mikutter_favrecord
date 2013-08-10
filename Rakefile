@@ -7,7 +7,6 @@ namespace :db do
     class CreateDatabase < ActiveRecord::Migration
       def up
         create_table :users do |t|
-          p t.methods.include? :index
           t.string :twitter_id
           t.string :screen_name
           t.string :name
