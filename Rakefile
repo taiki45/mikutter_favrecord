@@ -32,7 +32,7 @@ end
 
 desc "show all faved users order by faved count"
 task :show do
-  FavRecord::User.order(:favs_count).reverse_order.all.each do |user|
+  FavRecord::User.order(:favs_count).reverse_order.each do |user|
     puts "#{user.screen_name},#{user.favs.count}"
   end
 end
